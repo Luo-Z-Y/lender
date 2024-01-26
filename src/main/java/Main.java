@@ -1,3 +1,4 @@
+/*
 public class Main {
 
     public static void main(String[] args) {
@@ -15,5 +16,38 @@ public class Main {
         m2.setAsPaid("Alice Betsy");
         m2.listLoans();
         System.out.println("profit from m2: " + m2.calculateProfitEarned());
+    }
+}
+*/
+
+public class Main {
+
+    public static void main(String[] args) {
+        Loan[] loans = new Loan[100];
+        int loansCount = 0;
+
+        loans[loansCount] = new Loan(100, "Alice Betsy", 0.1, "12345678");
+        loansCount++;
+        loans[loansCount] = new Loan(50, "Ben Chee", 0.2, "87654321");
+        loansCount++;
+        loans[loansCount] = new Loan(30, "Chris Davis", 0.3, "11111111");
+        loansCount++;
+
+        loans[1].setAsPaid();
+
+        for (int i = 0; i < loansCount; i++) {
+            if (!loans[i].getIsPaid()) {
+                System.out.println(loans[i].getBorrower() + ": " + loans[i].getAmount());
+            }
+        }
+
+        double profit = 0;
+        for (int i = 0; i < loansCount; i++) {
+            // if the loan was repaid, add the interest to profit
+            if (loans[i].getIsPaid()) {
+                profit = profit + (loans[i].getAmount() * loans[i].getInterestRate());
+            }
+        }
+        System.out.println("profit: " + profit);
     }
 }
