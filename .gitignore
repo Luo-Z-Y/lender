@@ -23,3 +23,9 @@
 hs_err_pid*
 replay_pid*
 .idea/
+
+.fake
+
+# formatting
+.vscode/settings.json
+.vscode/eclipse-java-google-style.xml
